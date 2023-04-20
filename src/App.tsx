@@ -1,28 +1,29 @@
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./components/about";
-//import Header from "./components/header";
 import Header from "./components/header/header";
 import Home from "./components/home";
 import ContactUs from "./components/contact";
 import Skills from "./components/skills";
-import Experience from "./components/experience";
-import All from "./components/all";
+import ExperienceList from "./components/experience";
+import { Posts } from "./localstorage";
+import Experience from "./components/experience/experience";
 
 function App() {
-  const location = useLocation();
   return (
     <>
       <Header />
-      {location.pathname === `/` ? <All /> : null}
 
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/about" element={<About />} />
-        <Route path="/experience" element={<Experience />} />
+        <Route path="/experience" element={<ExperienceList />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/experience/:id" element={<Experience />} />
       </Routes>
+      <Posts />
     </>
   );
 }

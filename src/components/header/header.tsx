@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Img from "../../assets/images/123.jpg";
 import {
   Box,
   Menu,
@@ -11,7 +12,6 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import rbg from "../../assets/images/abc.png";
 import MenuIcon from "@mui/icons-material/Menu";
 import { TextWrap4 } from "./header.styled";
 import useMediaQuery from "../../hooks/use-media-query";
@@ -30,25 +30,15 @@ const Header = () => {
 
   return (
     <Grid container>
-      <AppBar position="fixed" style={{ background: "black", color: "white" }}>
+      <AppBar
+        position="fixed"
+        style={{
+          backgroundImage: `url(${Img})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         <Toolbar>
-          <Grid
-            item
-            md={1}
-            lg={1}
-            style={{
-              paddingLeft: 5,
-            }}
-          >
-            <Box
-              style={{
-                height: isDesktop ? 100 : 20,
-                backgroundImage: `url(${rbg})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-              }}
-            />
-          </Grid>
           <Grid
             item
             sx={{
@@ -113,7 +103,7 @@ const Header = () => {
                 display: "flex",
               }}
             >
-              <TextWrap4>Portfolio</TextWrap4>
+              <TextWrap4 style={{ color: "black" }}>Portfolio</TextWrap4>
             </Grid>
             <Grid
               item
@@ -129,7 +119,7 @@ const Header = () => {
                 <Button key={index} onClick={handleCloseNavMenu}>
                   <Link
                     style={{
-                      color: "white",
+                      color: "black",
                       textDecoration: "none",
                     }}
                     to={`/${page}`}

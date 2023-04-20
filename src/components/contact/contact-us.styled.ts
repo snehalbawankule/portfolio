@@ -19,10 +19,9 @@ width:200
   }
 `;
 const ContactUsTitle = styled.div`
-  margin-top: 50px;
   font-weight: 700;
   font-size: 36px;
-  color: white;
+  color: black;
   @media (max-width: 767px) {
     font-size: ${pxToRem(20)};
   }
